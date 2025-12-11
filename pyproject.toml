@@ -1,17 +1,25 @@
+
 [project]
-name = "mcp-server-email-"
+name = "mcp-server-email"
 version = "0.1.0"
 description = ""
 authors = [
-    {name = "rubyimogenjohnson",email = "ucfnrjo@ucl.ac.uk"}
+    {name = "rubyimogenjohnson", email = "ucfnrjo@ucl.ac.uk"}
 ]
 readme = "README.md"
-requires-python = ">=3.14"
+requires-python = ">=3.10"
 dependencies = [
+    "mcp (>=1.23.3,<2.0.0)",
+    "google-auth (>=2.15.0,<2.42.0)",
+    "google-api-python-client (>=2.187.0,<3.0.0)",
+    "google-auth-oauthlib (>=1.2.1)"
 ]
 
 [tool.poetry]
-packages = [{include = "mcp_server_email_", from = "src"}]
+packages = [{include = "mcp_server_email", from = "src"}]
+
+[tool.poetry.scripts]
+mcp-server-email = "mcp_server_email.server:main"
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]

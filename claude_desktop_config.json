@@ -1,8 +1,11 @@
 {
   "mcpServers": {
-    "gmail-mcp": {
-      "command": "poetry",
-      "args": ["run", "mcp-server-email"]
+    "mcp-server-email": {
+      "command": "C:/Users/Student/AppData/Local/pypoetry/Cache/virtualenvs/mcp-server-email-CEWig_us-py3.14/Scripts/python.exe",
+      "args": [
+        "src/server.py"
+      ],
+      "cwd": "C:/Users/Student/Documents/mcp-server-email"
     }
   }
 }
