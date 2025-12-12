@@ -1,10 +1,10 @@
 # MCP Email Server (FOI Automation)
 
-An MCP (Model Context Protocol) server that integrates with the Gmail API, allowing Claude and other AI assistants to automate Freedom of Information (FOI) request handling for Camden. The server can:
+An MCP (Model Context Protocol) server that integrates with the Gmail API, allowing Claude and other AI assistants to automate Freedom of Information (FOI) request handling. The server can:
 - Read unread emails
 - Suggest similar previous FOI responses
 - Assign requests to the best team using CSV mapping
-- Generate a professional FOI receipt draft (with Camden header and sign-off)
+- Generate a professional FOI receipt draft 
 
 
 ## Features
@@ -13,7 +13,7 @@ An MCP (Model Context Protocol) server that integrates with the Gmail API, allow
 - **FOI Draft Automation**: Claude suggests the best team and similar FOIs, then generates a professional receipt draft
 - **Team Mapping**: Uses CSVs to map subject keywords to teams and officers
 - **Knowledge Base**: Looks up similar FOI responses from a CSV
-- **Professional Receipts**: Drafts include Camden header, case reference, and correct sign-off
+- **Professional Receipts**: Drafts include header, case reference, and correct sign-off
 - **OAuth 2.0**: Secure authentication using Google OAuth 2.0
 - **Claude Integration**: Works seamlessly with Claude Desktop
 
@@ -61,19 +61,19 @@ poetry install
       - Save as `credentials.json` in the project root
 
 
-4. **Configure Claude Desktop** (see [CLAUDE_DESKTOP_SETUP.md](./CLAUDE_DESKTOP_SETUP.md))
+4. **Configure Claude Desktop**
 
 5. **Prepare Required CSVs**
 
 Place the following CSV files in the project root (examples below):
 
-- `Camden_Freedom_Of_Information_Responses_Search_20251211.csv` (FOI knowledge base)
+- `camden_foi_responses.csv` (FOI knowledge base)
 - `foi_team_mapping.csv` (maps subject keywords to teams/officers)
 - `foi_team_contacts.csv` (maps teams to officer emails)
 
 #### Example: camden_foi_responses.csv
 
-Download from [https://opendata.camden.gov.uk/Your-Council/Camden-Freedom-Of-Information-Responses-Search/fkj6-gqb4/about_data]
+Download from > https://opendata.camden.gov.uk/Your-Council/Camden-Freedom-Of-Information-Responses-Search/fkj6-gqb4/about_data
 
 ```
 Identifier,Date,Document Title,Document Text,Document Link
@@ -180,14 +180,5 @@ Creates a professional FOI receipt draft for a request, using team and officer d
   - Claude calls `find_best_team_for_subject` to pick the best team
   - Claude calls `compose-draft` with all details to generate a professional FOI receipt draft
 
-## License
 
-MIT License - See LICENSE file for details
-
-## References
-
-- [Model Context Protocol Documentation](https://modelcontextprotocol.io/)
-- [Gmail API Documentation](https://developers.google.com/gmail/api)
-- [Google OAuth 2.0 Guide](https://developers.google.com/identity/protocols/oauth2)
-- [Claude Desktop Documentation](https://claude.ai/resources/en/claude-desktop)
 
